@@ -1,12 +1,12 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/jpashop;MVCC=TRUE
+    url: jdbc:h2:tcp://localhost/~/jpashop
     username: sa
     password:
     driver-class-name: org.h2.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: create # 애플리케이션 실행 시점에 모두 지운 다음 다시 자동으로 테이블 생성
     properties:
       hibernate:
 #        show_sql: true
