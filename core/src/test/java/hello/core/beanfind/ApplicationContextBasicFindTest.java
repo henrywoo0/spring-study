@@ -23,8 +23,6 @@ class ApplicationContextBasicFindTest {
     @DisplayName("빈 이름으로 조회")
     void findBeanByName() {
         MemberService memberService = ac.getBean("memberService", MemberService.class);
-//        System.out.println("memberService = " + memberService);
-//        System.out.println("memberService.getClass() = " + memberService.getClass());
         assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
     }
 
@@ -39,8 +37,6 @@ class ApplicationContextBasicFindTest {
     @DisplayName("구체 타입으로 조회")
     void findBeanByName2() {
         MemberService memberService = ac.getBean("memberService", MemberServiceImpl.class);
-//        System.out.println("memberService = " + memberService);
-//        System.out.println("memberService.getClass() = " + memberService.getClass());
         assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
     }
     // 구체 타입으로 조회하면 유연성이 떨어짐
