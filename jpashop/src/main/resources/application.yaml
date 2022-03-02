@@ -1,0 +1,4 @@
+spring:
+  data:
+    url: jdbc:h2:tcp://localhost/~/jpashop;MVCC=TRUE
+    username:
