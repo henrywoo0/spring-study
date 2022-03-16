@@ -17,7 +17,7 @@ class OrderServiceImplTest {
         memberRepository.save(new Member(1L, "경숙", Grade.VIP));
         OrderServiceImpl orderService = new OrderServiceImpl(memberRepository, new FixDiscountPolicy());
         Order order = orderService.createOrder(1L, "itemA", 10000);
-        Assertions.assertThat(order).isEqualTo(1000);
+        Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
     }
 
 }
