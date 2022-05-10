@@ -1,6 +1,7 @@
 package jpabook.jpashop;
 
 import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.domain.Order;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,6 +16,7 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
 
         try {
+            Member member =
 
             tx.commit();
         } catch (Exception e) {
