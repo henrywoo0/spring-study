@@ -107,7 +107,7 @@ public class BasicController {
 
     @GetMapping("/javascript")
     public String javascript(Model model) {
-        model.addAttribute("user", new User("UserA", 10));
+        model.addAttribute("user", new User("User\"A\"", 10));
         addUsers(model);
         return "basic/javascript";
     }
