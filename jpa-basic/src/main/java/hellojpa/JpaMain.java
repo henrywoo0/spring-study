@@ -10,9 +10,7 @@ public class JpaMain {
 
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
-
         EntityManager em = emf.createEntityManager();
-
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
@@ -23,21 +21,26 @@ public class JpaMain {
 
             Member member = new Member();
             member.setUsername("member1");
-            member.setTeam(team);
+            member.changeTeam(team);
             em.persist(member);
+
+            Member member2 = new Member();
+            member.setUsername("member2");
+            member.changeTeam(team);
+            em.persist(member2);
 
             em.flush();
             em.clear();
 
-            Member findMember = em.find(Member.class, member.getId());
+            Team findTeam = em.find(Team.class, team.getId());
+            List<Member> members = findTeam.getMembers();
 
-            List<Member> members = findMember.getTeam().getMembers();
-
+            System.out.println("==============");
             for (Member m : members) {
                 System.out.println("m = " + m.getUsername());
             }
+            System.out.println("==============");
 
-            tx.commit();
         } catch (Exception e) {
             tx.rollback();
         } finally {
