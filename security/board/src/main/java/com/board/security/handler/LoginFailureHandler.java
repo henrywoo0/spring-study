@@ -19,10 +19,8 @@ public class LoginFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 
         String errorMessage;
 
-        if (e instanceof BadCredentialsException){
-            errorMessage = "아이디가 옳지 않습니다.";
-        } else if (e instanceof InternalAuthenticationServiceException) {
-            errorMessage = "비밀번호가 옳지 않습니다.";
+        if (e instanceof BadCredentialsException || e instanceof InternalAuthenticationServiceException){
+            errorMessage = "아이디 또는 비밀번호가 옳지 않습니다.";
         } else if (e instanceof UsernameNotFoundException){
             errorMessage = "존재하지 않는 아이디 입니다.";
         } else {
