@@ -2,14 +2,13 @@ package com.board.presentation;
 
 import com.board.domain.Posting;
 import com.board.presentation.dto.request.SavePostingRequest;
-import com.board.security.principal.PrincipalDetail;
+import com.board.global.security.principal.PrincipalDetail;
 import com.board.service.PostingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 import java.util.List;
 
 @Controller

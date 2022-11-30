@@ -1,4 +1,4 @@
-package com.board.security.handler;
+package com.board.global.security.handler;
 
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;

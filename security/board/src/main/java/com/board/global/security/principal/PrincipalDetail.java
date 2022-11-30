@@ -1,4 +1,4 @@
-package com.board.security.principal;
+package com.board.global.security.principal;
 
 import com.board.domain.User;
 import lombok.Getter;

@@ -1,7 +1,7 @@
-package com.board.security.config;
+package com.board.global.security.config;
 
-import com.board.security.handler.LoginFailureHandler;
-import com.board.security.principal.PrincipalDetailService;
+import com.board.global.security.handler.LoginFailureHandler;
+import com.board.global.security.principal.PrincipalDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,6 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/css/**", "/js/**", "/fonts/**", "/images/**").permitAll()
+                .antMatchers("/error/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/list").permitAll()
                 .antMatchers(HttpMethod.GET, "/view/**").permitAll()
                 .antMatchers("/user/**").permitAll()
