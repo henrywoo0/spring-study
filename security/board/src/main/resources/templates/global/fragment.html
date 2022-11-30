@@ -6,15 +6,17 @@
     <div class="header_wrap">
         <h1>우준성의 게시판</h1>
         <div sec:authorize="isAuthenticated()" class="header_a_wrap">
-            <span sec:authentication="principal.user.name"></span>
-            <span>님 환영합니다!</span>
-            <form action="/user/logout" method="post">
+            <div class="header_wrap">
+                <span sec:authentication="principal.user.name" class="header_a_child"></span>
+                <span class="header_a_child">님 환영합니다!</span>
+            </div>
+            <form action="/user/logout" method="post" class="header_a_child">
                 <button href="/user/logout" class="btn">로그아웃</button>
             </form>
         </div>
         <div sec:authorize="isAnonymous()" class="header_a_wrap">
-            <a href="/user/login">로그인</a>
-            <a href="/user/register">회원가입</a>
+            <a href="/user/login" class="href header_a_child">로그인</a>
+            <a href="/user/register" class="href header_a_child">회원가입</a>
         </div>
     </div>
 </div>

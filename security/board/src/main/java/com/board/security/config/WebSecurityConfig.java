@@ -1,5 +1,6 @@
-package com.board.security;
+package com.board.security.config;
 
+import com.board.security.handler.LoginFailureHandler;
 import com.board.security.principal.PrincipalDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -37,7 +38,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/user/login")
                 .defaultSuccessUrl("/list")
                 .usernameParameter("id")
-                .permitAll();
+                .permitAll()
+                .failureHandler(loginFailHandler());
 
         http.logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
@@ -60,6 +62,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
+    }
+
+    @Bean
+    public LoginFailureHandler loginFailHandler(){
+        return new LoginFailureHandler();
     }
 
     @Bean

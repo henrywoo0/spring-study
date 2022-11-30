@@ -4,7 +4,6 @@ import com.board.domain.User;
 import com.board.presentation.dto.request.UserLoginRequest;
 import com.board.presentation.dto.request.UserRegisterRequest;
 import com.board.repository.UserRepository;
-import com.board.security.principal.PrincipalDetail;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -38,6 +37,5 @@ public class UserServiceImpl implements UserService {
     public void login(UserLoginRequest request) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getId(), request.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        // PrincipalDetail principalDetail = (PrincipalDetail) authentication.getPrincipal();
     }
 }

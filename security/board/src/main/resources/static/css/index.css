@@ -113,13 +113,14 @@ label {
 }
 
 .header_a_wrap {
-    width: 200px;
+    width: 300px;
     display: flex;
     justify-content: space-between;
     align-content: center;
 }
 
-.header_a_wrap a {
+.header_a_child {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }

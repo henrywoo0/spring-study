@@ -23,5 +23,8 @@
     <button class="btn">로그인</button>
     <a href="/user/register" class="href">회원가입하기</a>
 </form>
+<div class="error" th:if="${error == 'true'}">
+    <span th:text="${exception}"></span>
+</div>
 </body>
 </html>
