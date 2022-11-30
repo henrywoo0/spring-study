@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>게시물 등록</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+<div th:replace="global/fragment :: header"></div>
+<div class="input">
+    <form action="write.do" method="post" >
+        <div>
+            <label>제목</label>
+            <input type="text" name="title" placeholder="제목을 입력하세요.">
+        </div>
+
+        <div>
+            <label>내용</label>
+            <input type="text" name="content" placeholder="내용을 입력하세요.">
+        </div>
+
+        <div>
+            <button class="btn">등록</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

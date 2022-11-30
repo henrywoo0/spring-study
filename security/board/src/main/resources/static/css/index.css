@@ -1,0 +1,125 @@
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    margin: 0 20%;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover, a:active {
+    text-decoration: none;
+    color: black;
+}
+
+.btn {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: auto;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: 0.5s;
+    background-color: white;
+    color: #306CF7;
+}
+
+.btn:hover {
+    transition: 1s;
+    background-color: #306CF7;
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tbody tr {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    background-color: white;
+    color: #306CF7;
+    margin-bottom: 20px;
+    transition: 1s;
+}
+
+tbody tr:hover {
+    background-color: #306CF7;
+    color: white;
+}
+
+th, td {
+    padding: 10px;
+}
+
+input {
+    width: 500px;
+    height: 32px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(233, 233, 233);
+    margin-bottom: 30px;
+}
+
+textarea {
+    width: 500px;
+    height: 32px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(233, 233, 233);
+    margin-bottom: 30px;
+}
+
+.content {
+    font-size: large;
+    margin-bottom: 10%;
+}
+
+label {
+    font-weight: bold;
+}
+
+.form_wrapper {
+    margin: 0 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.href {
+    color: blue;
+    text-decoration: underline;
+}
+
+.header_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.header_a_wrap {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.header_a_wrap a {
+    display: flex;
+    align-items: center;
+}

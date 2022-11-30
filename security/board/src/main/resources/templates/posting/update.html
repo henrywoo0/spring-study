@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+
+<div th:replace="global/fragment :: header"></div>
+
+<div class="input">
+    <form th:action="@{../update.do/{id}(id=${posting.id})}" method="put">
+
+        <div>
+            <label>제목</label>
+            <input type="text" name="title" th:value="${posting.title}">
+        </div>
+
+        <div>
+            <label>내용</label>
+            <input type="text" name="content" th:value="${posting.content}">
+        </div>
+
+        <div>
+            <label>작성자 정보</label>
+            <input type="text" name="writer" th:value="${posting.writer}">
+        </div>
+
+        <div>
+            <button>수정</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>게시물 읽기</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+
+<div th:replace="global/fragment :: header"></div>
+
+<div class="input">
+    <h2 th:text="${posting.title}">제목</h2>
+
+    <div class="content">
+        <span th:text="${posting.content}">내용</span>
+    </div>
+
+    <div>
+        <label>작성자</label>
+        <span th:text="${posting.writer.name}">작성자</span>
+    </div>
+
+    <div>
+        <label>작성 시간</label>
+        <span th:text="${ #temporals.format(posting.createdDate, 'yyyy년 MM월 dd일 HH시 mm분')}"></span>
+    </div>
+
+    <div>
+        <label>조회수</label>
+        <span th:text="${posting.viewCount}">조회수</span>
+    </div>
+
+    <a href="../list"><button class="btn">목록</button></a>
+</div>
+
+</body>
+</html>
