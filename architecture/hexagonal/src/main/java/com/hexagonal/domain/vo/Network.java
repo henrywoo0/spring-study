@@ -19,6 +19,10 @@ public class Network {
         return address;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getCidr() {
         return cidr;
     }

@@ -1,34 +1,33 @@
 package com.hexagonal.domain.service;
 
 import com.hexagonal.domain.entity.Router;
+import com.hexagonal.domain.specification.CIDRSpecification;
+import com.hexagonal.domain.specification.NetworkAmountSpecification;
+import com.hexagonal.domain.specification.NetworkAvailabilitySpecification;
+import com.hexagonal.domain.specification.RouterTypeSpecification;
 import com.hexagonal.domain.vo.IP;
 import com.hexagonal.domain.vo.Network;
 
 public class NetworkOperation {
 
-    private final int MINIMUM_ALLOWED_CIDR = 8;
-
     public void createNewNetwork(Router router, IP address, String name, int cidr) {
-        if (cidr < MINIMUM_ALLOWED_CIDR)
-            throw new IllegalArgumentException("CIDR must be below " + MINIMUM_ALLOWED_CIDR);
 
-        if (!isNetworkAvaliable(router, address, cidr))
-            throw new IllegalArgumentException("Address already exists");
+        var availabilitySpec = new NetworkAvailabilitySpecification(address, name, cidr);
+        var cidrSpec = new CIDRSpecification();
+        var routerTypeSpec = new RouterTypeSpecification();
+        var amountSpec = new NetworkAmountSpecification();
 
-        Network network = router.createNetwork(address, name, cidr);
-        router.addNetworkToSwitch(network);
-    }
-
-    private boolean isNetworkAvaliable(Router router, IP address, int cidr) {
-        var availability = true;
-
-        for(Network network : router.retrieveNetworks()) {
-            if (network.getAddress().equals(address) && network.getCidr() == cidr) {
-                availability = false;
-                break;
-            }
+        if (cidrSpec.isSatisfiedBy(cidr)) {
+            throw new IllegalArgumentException("CIDR is below" + CIDRSpecification.MINIMUM_ALLOWED_CIDR);
         }
 
-        return availability;
+        if (availabilitySpec.isSatisfiedBy(router)) {
+            throw new IllegalArgumentException("Address already exists");
+        }
+
+        if (amountSpec.and(routerTypeSpec).isSatisfiedBy(router)) {
+            Network network = router.createNetwork(address, name, cidr);
+            router.addNetworkToSwitch(network);
+        }
     }
 }
