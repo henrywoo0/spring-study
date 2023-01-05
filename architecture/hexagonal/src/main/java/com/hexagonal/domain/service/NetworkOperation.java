@@ -17,11 +17,11 @@ public class NetworkOperation {
         var routerTypeSpec = new RouterTypeSpecification();
         var amountSpec = new NetworkAmountSpecification();
 
-        if (cidrSpec.isSatisfiedBy(cidr)) {
+        if (!cidrSpec.isSatisfiedBy(cidr)) {
             throw new IllegalArgumentException("CIDR is below" + CIDRSpecification.MINIMUM_ALLOWED_CIDR);
         }
 
-        if (availabilitySpec.isSatisfiedBy(router)) {
+        if (!availabilitySpec.isSatisfiedBy(router)) {
             throw new IllegalArgumentException("Address already exists");
         }
 
